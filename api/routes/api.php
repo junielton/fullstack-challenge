@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ Route::get('/', function () {
         'users' => \App\Models\User::all(),
     ]);
 });
+
+// --
+Route::get('users', [UserController::class, 'index']);
+Route::get('weather/{lat}/{lng}', [WeatherController::class, 'show']);
