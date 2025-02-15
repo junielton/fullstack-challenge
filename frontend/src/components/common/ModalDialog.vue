@@ -1,11 +1,15 @@
 <template>
   <dialog
     ref="modalRef"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="dialog-title"
     @close="handleDialogClose"
     class="rounded-md p-6 shadow-lg">
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-lg font-bold">{{ title }}</h2>
       <button
+        aria-label="Close dialog"
         @click="close"
         class="text-gray-500 hover:text-gray-700 text-2xl">
         &times;
