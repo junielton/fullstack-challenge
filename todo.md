@@ -16,28 +16,28 @@
 
 ## 3. Building the API with Laravel
 - ✅ Initialize the Laravel project.
-- [ ] Set up routes and controllers to provide weather data.
-- [ ] Ensure internal API requests respond within 500ms.
+- ✅ Set up routes and controllers to provide weather data.
+- ✅ Ensure internal API requests respond within 500ms. 👀 (first cal counts?)
 
 ## 4. Integration with the Weather API
-- [ ] Choose a weather API (e.g., OpenWeatherMap or Weather.gov). 💡
-- [ ] Develop the integration with the external weather API.
-- [ ] Implement error handling and fallback strategies in case the external API is unavailable.
+- ✅ Choose a weather API (e.g., OpenWeatherMap or Weather.gov). 💡(Bolth?)
+- ✅ Develop the integration with the external weather API.
+- ✅ Implement error handling and fallback strategies in case the external API is unavailable.
 
 ## 5. Developing the Frontend with VueJS
 - ✅ Set up the VueJS environment and install necessary npm dependencies.
-- [ ] Build the landing page to list users with their current weather data.
-- [ ] Implement functionality to open a modal or new page with detailed weather information when a user is clicked.
-- [ ] (Optional) Integrate a UI library (e.g., Vuetify, Tailwind, Bootstrap) to enhance the presentation.
+- ✅ Build the landing page to list users with their current weather data.
+- ✅ Implement functionality to open a modal or new page with detailed weather information when a user is clicked.
+- ✅ (Optional) Integrate a UI library (e.g., Vuetify, Tailwind, Bootstrap) to enhance the presentation.
 
 ## 6. Testing and Optimization
-- [ ] Write automated tests for both the backend and frontend.
-- [ ] Implement caching using Redis to optimize API responses.
-- [ ] Consider using queues and workers for asynchronous operations.
-- [ ] Monitor and optimize the application performance to ensure fast responses.
+- ✅ Write automated tests for both the backend and frontend.
+- 👀 Implement caching using Redis to optimize API responses. (database)
+- ✅ Consider using queues and workers for asynchronous operations.
+- ✅ Monitor and optimize the application performance to ensure fast responses. ~60ms~
 
 ## 7. Documentation and Delivery
-- [ ] Document the development process and the technical decisions made.
+- ✅ Document the development process and the technical decisions made.
 - [ ] Send the cloned repository link to the interviewer.
 - [ ] Report the total time spent completing the challenge.
 
@@ -52,31 +52,60 @@ For this challenge, I will choose the OpenWeatherMap API as the primary weather 
 ```
 app/
 ├── Contracts/
-│   └── WeatherProviderInterface.php         # Define os métodos que qualquer provedor de clima deve implementar.
+│   └── WeatherProviderInterface.php
 ├── Jobs/
-│   └── UpdateWeatherJob.php                   # Job agendado para buscar os dados de clima periodicamente.
+│   └── UpdateWeatherJob.php
 ├── Services/
 │   └── Weather/
-│       ├── PrimaryWeatherProvider.php         # Implementação da API primária (ex: OpenWeatherMap).
-│       ├── SecondaryWeatherProvider.php       # Implementação da API secundária (ex: Weather.gov).
-│       └── WeatherService.php                 # Serviço que orquestra a lógica de fallback entre os provedores.
+│       ├── PrimaryWeatherProvider.php
+│       ├── SecondaryWeatherProvider.php
+│       └── WeatherService.php
 ├── Http/
 │   └── Controllers/
-│       └── WeatherController.php              # Controlador para responder as requisições de clima.
+│       └── WeatherController.php
 config/
-└── weather.php                                # Configurações específicas para as APIs de clima (chaves, endpoints, etc.).
+└── weather.php
 ```
 
 ### Observations
 - The response from the apis are pretty different, so I will need to create a common data structure to handle the data.
 
+**Common Data Structure**
+```json
+{
+   "city": "Brusque",
+   "country": "BR",
+   "latitude": -27.097,
+   "longitude": -48.911,
+   "observation_time": "2025-02-12T22:14:19+00:00",
+   "temperature": 27.9,
+   "weather_description": "clear sky",
+   "weather_icon": "01n",
+   "provider": "primary"
+}
+```
+```json
+{
+   "city": "Brusque",
+   "country": "BR",
+   "latitude": -27.091,
+   "longitude": -48.931,
+   "observation_time": "2025-02-12T18:55:00-03:00",
+   "temperature": 31.8,
+   "weather_description": "Clouds and sun",
+   "weather_icon": 4,
+   "provider": "secondary"
+}
+```
+---
+
 ### Time Spent
 - Planning and Setup: 2 hours
-- Backend Development: 4 hours
-- Frontend Development: 6 hours
+- Backend Development: 6 hours
+- Frontend Development: 5 hours
 - Testing and Optimization: 2 hours
 - Documentation and Delivery: 1 hour
-- **Total Time: 15 hours**
+- **Total Time: 16 hours**
 
 ---
 
