@@ -1,5 +1,6 @@
 <template>
   <button
+    :aria-label="`See weather information for ${name}`"
     @click="fetchUserWeather(latitude, longitude)"
     class="card relative bg-neutral-100 p-4 rounded-lg flex flex-col items-center justify-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-700 cursor-pointer">
     <div class="bg-neutral-50 p-4 rounded-full shadow-md hover:shadow-xl user-img transition-all duration-1000">
