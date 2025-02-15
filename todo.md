@@ -38,7 +38,7 @@
 
 ## 7. Documentation and Delivery
 - ✅ Document the development process and the technical decisions made.
-- [ ] Send the cloned repository link to the interviewer.
+- ✅ Send the cloned repository link to the interviewer.
 - [ ] Report the total time spent completing the challenge.
 
 ---
