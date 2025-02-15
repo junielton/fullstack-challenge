@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import UserSvgIcon from '@/components/app/user/UserSvgIcon.vue'
+import UserSvgIcon from '../../../components/app/user/UserSvgIcon.vue'
 </script>
 
 <style scoped>

@@ -50,7 +50,7 @@ import { onBeforeMount, ref, watch } from 'vue'
 import UserCard from './app/user/UserCard.vue'
 import UserSkeletonCard from './app/user/UserSkeletonCard.vue'
 import ModalDialog from './common/ModalDialog.vue'
-import type { IWeatherUser } from '@/interfaces/Weather'
+import type { IWeatherUser } from '../interfaces/Weather'
 
 interface IUser {
   id: number

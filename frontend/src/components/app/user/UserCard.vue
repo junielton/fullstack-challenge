@@ -14,8 +14,8 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import UserSvgIcon from '@/components/app/user/UserSvgIcon.vue'
-import type { IWeatherUser } from '@/interfaces/Weather'
+import UserSvgIcon from '../../app/user/UserSvgIcon.vue'
+import type { IWeatherUser } from '../../../interfaces/Weather'
 
 type User = {
   name: string
