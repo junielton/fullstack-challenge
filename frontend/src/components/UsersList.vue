@@ -28,6 +28,7 @@
     :title="`Weather - ${weather.name}`">
     <div class="text-center w-max min-w-72 sm:min-w-96">
       <img
+        v-if="weather.provider === 'primary' && weather.weather_icon"
         :src="`https://openweathermap.org/img/wn/${weather.weather_icon}@2x.png`"
         :alt="weather.weather_description"
         class="w-20 h-20 mx-auto" />
