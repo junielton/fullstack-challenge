@@ -27,11 +27,10 @@
     @update:modelValue="isModalOpen = $event"
     :title="`Weather - ${weather.name}`">
     <div class="text-center w-max min-w-72 sm:min-w-96">
-      <img
+      <WeatherImage
         v-if="weather.provider === 'primary' && weather.weather_icon"
-        :src="`https://openweathermap.org/img/wn/${weather.weather_icon}@2x.png`"
-        :alt="weather.weather_description"
-        class="w-20 h-20 mx-auto" />
+        :weatherIcon="weather.weather_icon"
+        :weatherDescription="weather.weather_description" />
       <h4 class="text-8xl">{{ Math.round(weather.temperature) }}°C</h4>
       <p>{{ weather.weather_description }}</p>
       <hr class="my-4" />
@@ -41,7 +40,6 @@
         <p>{{ formatData(weather.observation_time).time }}</p>
       </div>
       <p>{{ formatData(weather.observation_time).period }}</p>
-
       <h5 class="mt-7 text-2xl">{{ weather.city }}</h5>
     </div>
   </ModalDialog>
@@ -51,6 +49,7 @@ import { onBeforeMount, ref, watch } from 'vue'
 import UserCard from './app/user/UserCard.vue'
 import UserSkeletonCard from './app/user/UserSkeletonCard.vue'
 import ModalDialog from './common/ModalDialog.vue'
+import WeatherImage from './WeatherImage.vue'
 import type { IWeatherUser } from '../interfaces/Weather'
 
 interface IUser {
